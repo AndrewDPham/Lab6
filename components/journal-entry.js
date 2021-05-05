@@ -128,7 +128,7 @@ class JournalEntry extends HTMLElement {
       entryAudio = document.createElement("AUDIO");
       entryAudio.className = "entry-audio";
       entryAudio.src = entry.audio;
-      entryAudio.controls = "";
+      entryAudio.controls = true;
 
       // // let audioSource = document.createElement("source");
       // // audioSource.src = entry.audio;
