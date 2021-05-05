@@ -74,6 +74,16 @@ class JournalEntry extends HTMLElement {
     
     // CODE GOES HERE
 
+    this.shadowRoot.querySelector(".entry-title").innerHTML = entry.title;
+    this.shadowRoot.querySelector(".entry-date").innerHTML = entry.date;
+    this.shadowRoot.querySelector(".entry-content").innerHTML = entry.content;
+
+    // console.log(entry);
+    // let journal = this.template.getElementsByClass("entry")[0];
+    // console.log(journal);
+    // console.log(this.shadowRoot);
+    // journal.getElementByClass("entry-title");
+
     if (entry.image) {
       let entryImage;
       /*
@@ -85,9 +95,12 @@ class JournalEntry extends HTMLElement {
 
       // CODE GOES HERE vvv
 
+      entryImage = document.createElement("IMG");
+      entryImage.className = "entry-image";
+      entryImage.src = entry.image.src;
+      entryImage.alt = entry.image.alt;
 
-
-
+      this.shadowRoot.querySelector(".entry").appendChild(entryImage);
 
       // CODE GOES HERE ^^^
 
@@ -112,8 +125,18 @@ class JournalEntry extends HTMLElement {
       // CODE GOES HERE vvv
 
 
+      entryAudio = document.createElement("AUDIO");
+      entryAudio.className = "entry-audio";
+      entryAudio.src = entry.audio;
+      entryAudio.controls = "";
 
+      // // let audioSource = document.createElement("source");
+      // // audioSource.src = entry.audio;
+      // // audioSource.type = "audio/mp3"; // Ask TA about this
 
+      // entryAudio.appendChild(audioSource);
+
+      this.shadowRoot.querySelector(".entry").appendChild(entryAudio);
 
 
       // CODE GOES HERE ^^^
